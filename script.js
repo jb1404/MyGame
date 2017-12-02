@@ -333,7 +333,7 @@ var party = new KillingHeroe();
 var soundID = "Thunder";
 
 function loadSound () {
-    createjs.Sound.registerSound("sounds/minigun.mp3", soundID);
+    createjs.Sound.registerSound("sounds/mossburg.mp3", soundID);
   }
 
   function playSound () {
