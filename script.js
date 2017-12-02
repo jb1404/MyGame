@@ -149,7 +149,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: '',
+            source: 'images/Gif/evil.gif',
             shot: '',
             cliked: false,
             score: 2,
@@ -179,7 +179,7 @@ var KillingHeroe = function() {
     this.theGame = [];
     this.shuffle();
     this.shuffleBad()
-    this.partyTime = 5;
+    this.partyTime = 20;
     this.courrentTime = this.partyTime
     this.cardPoint =0;
     this.numberOfCards = 14;
@@ -191,6 +191,7 @@ KillingHeroe.prototype.startGame = function() {
     this.chrono();
     this.gameCards();
     this.showCard();
+    $("#chrono > h6").text(0)
     $('#startButton').addClass('tada') 
     }
 
@@ -276,7 +277,7 @@ KillingHeroe.prototype.showCard = function() {
     that = this;
    
     $('#startButton').on('click', function()
-    { 
+    { //that.changeCursor();
     }
     )
     for (i = 0; i < this.numberOfCards; i++) {
@@ -284,14 +285,24 @@ KillingHeroe.prototype.showCard = function() {
         $('.cardgame[index-data="'+i+'"] > img').attr('src', j[i].source)
         }
 }
+KillingHeroe.prototype.changeCursor = function () 
+{
+        $hand = $('.hand');
+        $hand.click(function() {
+            $hand.css('cursor','images/objets/lightsabericonred .png');
+        });
 
+}
 
 KillingHeroe.prototype.points = function(e) {
      
       party.cardPoint += party.theGame[$(this).attr('index-data')].score;
       $("#count > h6").text(party.cardPoint);
       $("#count2 > h6").text(party.theGame[$(this).attr('index-data')].score);
-    
+      $("#count2").toggleClass('animated zoomIn');
+      //setTimeout($("#count2").removeClass('animated zoomIn'),1000);
+
+
     var tmp = $(this).find('img')
     tmp.explode({
         "minWidth": 3,
