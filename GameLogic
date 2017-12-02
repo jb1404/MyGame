@@ -1,0 +1,118 @@
+Premier ecran accueil:
+- Explications
+-créer partie
+
+Dexième ecran :
+- Bouton Start => affiche le board + le decompte démarre de 20 sec à 0 +
+- j'affiche 9 cartes retournées
+- par intervalle de temps j'en retourne 3 en séquence pendant 20 secondes :
+    - si un bad guy est cliké => compteur +1 + + j'affiche la deuxieme photo avec un effet + la carte se referme
+    -  si un good guy est cliké => compteur -2 + j'affiche la deuxieme photo avec un effet + la carte se referme
+- en bas j'affiche une progression plus les points augmentent
+
+
+
+
+
+
+
+
+
+/*Break the project down into different steps (logic & data structures, layout and rendering, DOM manipulation & user interaction). 
+Use whiteboards to conceptualize your game!
+
+Logic :
+in 20 sec, user must click all the #badguys.
+One #badguys clicked = +3 points
+One #goodGuys clicked = -3 points 
+New cards only appear when when all bad guys are clicked,
+Max scrore in 20 sec wins
+Publish on FB
+random stand de tir
+
+//Tricks : click all ! Click none
+
+
+Data structure:
+
+var MyBoard = function ()
+{
+	{photo : 'nom',
+	source : 'src',
+	sourceCliked : 'src'
+	shown : bolean,
+	cliked : bolean,
+	goodGuy: bolean,
+	Specials : 1}
+
+
+}
+
+function CreateBoard // take the space on screen to show reveals cards
+function cliked // will change the state of the pictures, change the score, printed clikedphotos
+function shuffle cards //
+function reveal // flip cards on a synchronuous path
+function count // will coun the score
+function showScore // will print the score
+function specials // will change mouse icon, make special sounds,
+function chornometre
+
+board :
+X pictures
+State : shown(yes,no), clicked (yes,no), good guy(yes,no),specials(level1,2,3)
+compteur for points
+Chronometre:
+
+Layout and rendering :
+
+
+
+DOM :
+actions when a button a cliked
+actions when a photo is cliked
+
+
+Visual :
+sounds
+Mouse
+When one image is cliked
+Screen 1:
+Screen 2:
+Screen3:
+Screen 4
+
+1 Chronometer
+2 users
+
+------------
+Var Gameerea = function () 
+{
+
+
+}
+
+204 new users (60 friends & family)
++ 4% weekly new users
+23% connect everyday
+2.10 min par session en augmentation
+1007 produits sauvegardés
+10 messages et 3 nouvelles conversations par jour
+*/
+
+
+<!--
+/*<div id ='center'> 
+        <canvas id ='myGame' width ='100%' height ='100%'></canvas>
+        <button type='button'id = 'startButton'>START</button>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+ <!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    </div>
+...-->
+-->
