@@ -18,7 +18,7 @@
     <script src="https://code.createjs.com/soundjs-0.6.2.min.js"></script>
 </head>
 
-<body>
+<body onload="loadSound();">
 
     <nav class="navbar navbar-expand-lg navbar-light" style='background-color: #e3f2fd;'>
 
@@ -100,26 +100,19 @@
         <h6>Progress bar is here</h6>
     </div>
 
-    <!--<div class="progress">
-        <div class="progress-bar progress-bar-striped .progress-bar-animated" role="progressbar" style="height : 100%; width: 10%" aria-valuenow="80" aria-valuemin="10" aria-valuemax="100">yo</div>
-    </div>
-    <div>
-        <button type="button" class="btn btn-lg btn-fb"><i class="fa fa-facebook left"></i> Facebook</button>
-    </div>
-    <div class="btn-group mr-2" role="group" aria-label="Second group" style='background-color: #F2AF29;'>
-            <button type="button" class="btn btn-secondary"><h3>Time:</h3></button>
-            <button type="button" class="btn btn-secondary" id='chrono'><h3>20</h3></button>
-        </div>
-          <div class="btn-group mr-2" id='startButton' role="group" aria-label="Second group" style='background-color: #F2AF29;'>
-            <button type="button" class="btn btn-secondary"><h3>Play !</h3></button>
-        </div>
-        <div class="btn-group mr-2" role="group" aria-label="First group">
-            <button type="button" class="btn btn-secondary"><h3>Score:</h3></button>
-            <button type="button" class="btn btn-secondary" id='count'><h3>0</h3></button>
-        </div>
-    </div>-->
-
-   
+    <button onclick="playSound();" class="playSound">Play Sound</button>
+    <script>
+        var soundID = "Thunder";
+  
+        function loadSound () {
+          createjs.Sound.registerSound("sounds/minigun.mp3", soundID);
+        }
+  
+        function playSound () {
+          createjs.Sound.play(soundID);
+        }
+      </script>
+  
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

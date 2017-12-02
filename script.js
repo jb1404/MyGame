@@ -180,6 +180,7 @@ var KillingHeroe = function() {
     this.shuffle();
     this.shuffleBad()
     this.partyTime = 5;
+    this.courrentTime = this.partyTime
     this.cardPoint =0;
     this.numberOfCards = 14;
 }
@@ -199,7 +200,7 @@ KillingHeroe.prototype.chrono = function() {
         if (counter > 0) {
             counter += -1;
             $("#chrono > h6").text(counter);
-            that.partyTime = counter;
+            that.courrentTime = counter;
         } else {
             clearInterval(that.cycleInterval);
             that.gameOver();
@@ -315,3 +316,14 @@ KillingHeroe.prototype.points = function(e) {
 
 
 var party = new KillingHeroe();
+
+
+var soundID = "Thunder";
+
+function loadSound () {
+    createjs.Sound.registerSound("sounds/minigun.mp3", soundID);
+  }
+
+  function playSound () {
+    createjs.Sound.play(soundID);
+  }
