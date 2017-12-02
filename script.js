@@ -185,6 +185,7 @@ var KillingHeroe = function() {
 }
 
 KillingHeroe.prototype.startGame = function() {
+    $('.center > img').attr('src',"");
     this.cycleInterval = setInterval(this.showCard.bind(this),4000);
     this.chrono();
     this.gameCards();
@@ -219,6 +220,7 @@ for (i = 0; i < this.numberOfCards; i++)
     }
     $('.center').prepend('<img id="theImg" src="'+ that.gameOverCard[temp].source +'" />')
     $('#startButton').toggleClass('launch') 
+    $('#startButton').addClass('tada') 
 
 }
 
