@@ -51,7 +51,7 @@ border-width: 2px;
 .cardgame {
     /*width: 30vw;
     height: 30vw;*/
-    padding: 30px;
+    padding: 25px;
 }
 
 .cardgame img {
@@ -69,4 +69,23 @@ border-width: 2px;
 
 .footerFlex {
     align-self: flex-end;
+}
+
+
+.center2 {
+    margin-top:15px;
+    display : flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    background-color: rgb(196, 112, 245);
+    align-items:center;
+    height:500px;
+    width : 100%;}
+
+.footerfoo {
+    position:fixed;
+    bottom:0px;
+    width:100%;
+
 }

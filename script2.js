@@ -1,0 +1,8 @@
+
+
+$('#typed-strings').typed(
+    {
+
+    }
+)
+  

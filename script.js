@@ -178,19 +178,24 @@ var KillingHeroe = function() {
     this.total = 20;
     this.theGame = [];
     this.shuffle();
+    this.timing = 0;
     this.shuffleBad()
-    this.partyTime = 20;
+    this.partyTime = 60;
     this.courrentTime = this.partyTime
     this.cardPoint =0;
     this.numberOfCards = 14;
+    this.intervall = 4000;
 }
 
 KillingHeroe.prototype.startGame = function() {
+
     $('.center > img').attr('src',"");
-    this.cycleInterval = setInterval(this.showCard.bind(this),4000);
+    // this.cycleInterval = setInterval(this.showCard.bind(this),party.intervall);
     this.chrono();
     this.gameCards();
     this.showCard();
+    this.acceleration();
+
     $("#chrono > h6").text(0)
     $('#startButton').addClass('tada') 
     }
@@ -214,7 +219,7 @@ KillingHeroe.prototype.chrono = function() {
 KillingHeroe.prototype.gameOver = function() 
 {
     var that = this;
-    console.log('game over');
+    clearInterval(this.timing)
     temp = Math.floor(Math.random() * 2)
 
 for (i = 0; i < this.numberOfCards; i++) 
@@ -266,23 +271,35 @@ KillingHeroe.prototype.shuffleBad = function() {
 
 }
 
+KillingHeroe.prototype.acceleration = function() 
+{
+    
+    var that = this;
+    this.timing = setInterval(
+         function () {
+            //console.log('this interval', that.intervall)
+             that.intervall = that.intervall * (0.9)
+             clearInterval(that.cycleInterval);
+             that.cycleInterval = setInterval(that.showCard.bind(that),that.intervall);
+            }, 3000);
+     //console.log(this);
+     //console.log(this);
 
+    
+
+}
 
 KillingHeroe.prototype.showCard = function() {
-    console.log()
+    console.log(this);
     this.shuffleBad();
     this.shuffle();
     this.gameCards();
+    // this.acceleration();
     var j = this.gameCards();
     that = this;
    
-    $('#startButton').on('click', function()
-    { //that.changeCursor();
-    }
-    )
     for (i = 0; i < this.numberOfCards; i++) {
-
-        $('.cardgame[index-data="'+i+'"] > img').attr('src', j[i].source)
+          $('.cardgame[index-data="'+i+'"] > img').attr('src', j[i].source)
         }
 }
 KillingHeroe.prototype.changeCursor = function () 
@@ -297,10 +314,20 @@ KillingHeroe.prototype.changeCursor = function ()
 KillingHeroe.prototype.points = function(e) {
      
       party.cardPoint += party.theGame[$(this).attr('index-data')].score;
+      if(){
+      localStorage.setItem("Best Score", party.cardpoint);
+      localStorage.Item("Best Score", party.cardpoint);
+      }
       $("#count > h6").text(party.cardPoint);
       $("#count2 > h6").text(party.theGame[$(this).attr('index-data')].score);
       $("#count2").toggleClass('animated zoomIn');
-      //setTimeout($("#count2").removeClass('animated zoomIn'),1000);
+
+      if (party.theGame[$(this).attr('index-data')].score > 0) {
+        createjs.Sound.play(soundIDGood);
+      }
+      else {
+        createjs.Sound.play(soundIDBad);
+      }
 
 
     var tmp = $(this).find('img')
@@ -320,8 +347,13 @@ KillingHeroe.prototype.points = function(e) {
         "gravity": 10,
         "groundDistance": 236
     });
-    setTimeout(function() {
-        $('.explode-wrapper').hide()
+    setTimeout(() => {
+        $('.explode-wrapper').hide();
+        console.log('reload img', $(this).find('img'))
+        if ($(this).find('img').length === 0) {
+        $(this).append("<img id ='target' src='' alt=''>")}
+        else ;
+
     }, 1000);
 
 }
@@ -330,12 +362,16 @@ KillingHeroe.prototype.points = function(e) {
 var party = new KillingHeroe();
 
 
-var soundID = "Thunder";
+var soundIDGood = "Good";
+var soundIDBad = "Bad";
 
 function loadSound () {
-    createjs.Sound.registerSound("sounds/mossburg.mp3", soundID);
-  }
+    createjs.Sound.registerSound("sounds/mossburg.mp3", soundIDGood);
+    createjs.Sound.registerSound("sounds/minigun.mp3", soundIDBad);
+}
 
-  function playSound () {
+function playSound () {
     createjs.Sound.play(soundID);
-  }
+}
+
+playsun
