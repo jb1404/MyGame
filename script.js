@@ -194,6 +194,7 @@ KillingHeroe.prototype.startGame = function() {
     this.gameCards();
     this.showCard();
     this.acceleration();
+    createjs.Sound.play(soundIDStart); 
 
     $("#chrono > h6").text(0)
     $('#startButton').addClass('tada') 
@@ -320,7 +321,8 @@ KillingHeroe.prototype.points = function(e) {
         createjs.Sound.play(soundIDGood);
       }
        else { party.theGame[$(this).attr('index-data')].score
-        createjs.Sound.play(soundIDBad);
+       createjs.Sound.play(soundIDGood); 
+       createjs.Sound.play(soundIDEvil);
       }
       //elseif () {}
 
@@ -359,10 +361,14 @@ var party = new KillingHeroe();
 
 var soundIDGood = "Good";
 var soundIDBad = "Bad";
+var soundIDEvil = 'Evil'
+var soundIDStart = 'Start'
 
 function loadSound () {
     createjs.Sound.registerSound("sounds/mossburg.mp3", soundIDGood);
     createjs.Sound.registerSound("sounds/minigun.mp3", soundIDBad);
+    createjs.Sound.registerSound("sounds/Evil.mp3", soundIDEvil);
+    createjs.Sound.registerSound("sounds/body.m4a", soundIDStart);
 }
 
 function playSound () {
