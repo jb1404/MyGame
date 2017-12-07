@@ -367,7 +367,7 @@ var soundIDStart = 'Start'
 function loadSound () {
     createjs.Sound.registerSound("sounds/mossburg.mp3", soundIDGood);
     createjs.Sound.registerSound("sounds/minigun.mp3", soundIDBad);
-    createjs.Sound.registerSound("sounds/Evil.mp3", soundIDEvil);
+    createjs.Sound.registerSound("sounds/Evil.wav", soundIDEvil);
     createjs.Sound.registerSound("sounds/body.m4a", soundIDStart);
 }
 
