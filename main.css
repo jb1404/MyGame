@@ -77,15 +77,26 @@ border-width: 2px;
     display : flex;
     flex-direction: row;
     flex-wrap:wrap;
-    justify-content: space-around;
-    background-color: rgb(196, 112, 245);
+    justify-content: center;
+    background-color: rgb(159, 171, 241);
     align-items:center;
-    height:500px;
+    height:400px;
     width : 100%;}
 
 .footerfoo {
     position:fixed;
     bottom:0px;
     width:100%;
+
+}
+
+.center3 {
+   
+    display : flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+
+    align-items:center;
 
 }

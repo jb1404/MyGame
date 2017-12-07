@@ -12,7 +12,7 @@ var KillingHeroe = function() {
     this.cardGood = [{
             index: 0,
             name: 'Trumpy',
-            source: 'images/Gif/CA.gif',
+            source: 'images/Gif/droide.gif',
             shot: 'Evil.jpg',
             cliked: false,
             score: -3,
@@ -24,7 +24,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: 'images/Gif/CA.gif',
+            source: 'images/Gif/chewie.gif',
             shot: 'Evil.jpg',
             cliked: false,
             score: -3,
@@ -89,7 +89,7 @@ var KillingHeroe = function() {
     this.cardBad = [{
             index: 0,
             name: 'Evil',
-            source: 'images/Gif/evil.gif',
+            source: 'images/Gif/Evil2.gif',
             shot: '//images/Trumpy_clicked.png',
             cliked: false,
             score: 2,
@@ -113,7 +113,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Evil',
-            source: 'images/Gif/evil.gif',
+            source: 'images/Gif/palpatine.gif',
             shot: '//images/Trumpy_clicked.png',
             cliked: false,
             score: 2,
@@ -137,7 +137,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Evil',
-            source: 'images/Gif/evil.gif',
+            source: 'images/Gif/Evil3.gif',
             shot: '//images/Trumpy_clicked.png',
             cliked: false,
             score: 2,
@@ -276,7 +276,7 @@ KillingHeroe.prototype.acceleration = function()
     var that = this;
     this.timing = setInterval(
          function () {
-             that.intervall = that.intervall * (0.9)
+             that.intervall = that.intervall * (0.83)
              clearInterval(that.cycleInterval);
              that.cycleInterval = setInterval(that.showCard.bind(that),that.intervall);
             }, 3000);
