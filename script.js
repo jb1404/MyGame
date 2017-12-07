@@ -319,10 +319,11 @@ KillingHeroe.prototype.points = function(e) {
 
       if (party.theGame[$(this).attr('index-data')].score == 2) {
         createjs.Sound.play(soundIDGood);
+        createjs.Sound.play(soundIDEvil);
       }
        else { party.theGame[$(this).attr('index-data')].score
        createjs.Sound.play(soundIDGood); 
-       createjs.Sound.play(soundIDEvil);
+      
       }
       //elseif () {}
 
