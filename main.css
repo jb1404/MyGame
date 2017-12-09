@@ -35,7 +35,7 @@
 }
 
 
-.textScore {
+.textScore.menu {
     font-weight:bold;
 }
 .menuPlay {
@@ -121,6 +121,10 @@ border-width: 2px;
 
 }
 
+.intro{
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
 
 .cardgameOver{
     padding:0px;

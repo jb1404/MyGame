@@ -224,6 +224,17 @@ var KillingHeroe = function() {
             source: 'images/Gif/no.png'
         }
     ]
+
+    this.bonus =[
+        {   
+            source: 'images/Objets/lightsabericonred .png',
+            sound:'',
+            score:''
+        },
+        {   
+            source: 'images/Gif/no.png'
+        }
+    ]
     this.gameOverCard = [{
         index: 0,
         name: 'Evil',
