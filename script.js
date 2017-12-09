@@ -9,7 +9,7 @@ $(document).ready(function()
     setTimeout(function() {
         party.startGame();
         createjs.Sound.play(soundIDStart); 
-    },500);
+    },1100);
     
 
     
