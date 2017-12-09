@@ -148,6 +148,16 @@ border-width: 2px;
     display:none;
 }
 
+
+.shoot {
+    color:red;
+}
+
+.vilains
+{
+    padding-left: 15px;
+}
+
 .kh{
     border: 2px solid white;
     padding : 8px;
@@ -157,7 +167,19 @@ border-width: 2px;
     align-self: flex-end;
 }
 
+.welcome {
+    display : flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    text-align: center;
+    
+    align-items:center;
+    height:70%;
+    width :100%;
+    padding:;}
 
+}
 .center2 {
 
     display : flex;

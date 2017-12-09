@@ -243,7 +243,7 @@ var KillingHeroe = function() {
     this.bestScore = 0;
     this.timing = 0;
     this.shuffleBad()
-    this.partyTime = 30;
+    this.partyTime = 45;
     this.courrentTime = this.partyTime
     this.cardPoint =0;
     this.numberOfCards = 21;
