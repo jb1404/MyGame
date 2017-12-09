@@ -5,8 +5,10 @@ $(document).ready(function()
     })
     //$('navbar-expand-lg').toggleClass('show');
     //$('page-footer').toggleClass('launch');
+    
     setTimeout(function() {
-        party.startGame()
+        party.startGame();
+        createjs.Sound.play(soundIDStart); 
     },500);
     
 
@@ -225,14 +227,17 @@ var KillingHeroe = function() {
         }
     ]
 
-    this.bonus =[
+    this.extraCard =[
         {   
+            name : 'bob',
             source: 'images/Objets/lightsabericonred .png',
             sound:'',
             score:''
         },
-        {   
-            source: 'images/Gif/no.png'
+        {   name : 'jony',
+            source: 'images/Gif/no.png',
+            sound:'',
+            score:''
         }
     ]
     this.gameOverCard = [{
@@ -268,7 +273,7 @@ KillingHeroe.prototype.startGame = function() {
     this.gameCards();
     this.showCard();
     this.acceleration();
-    createjs.Sound.play(soundIDStart); 
+    
 
     $('#startButton').addClass('tada') 
     }
@@ -394,6 +399,9 @@ KillingHeroe.prototype.points = function(e) {
 
       
       $("body > div.menu > div.border.border-info.topscore.un > span > h5").text('Party-Score: '+party.cardPoint);
+
+        
+
 
 
       if (party.theGame[$(this).attr('index-data')].score == 2) {
