@@ -8,7 +8,7 @@ $(document).ready(function()
     
     setTimeout(function() {
         party.startGame();
-        createjs.Sound.play(soundIDStart); 
+        //createjs.Sound.play(soundIDStart); 
     },1100);
     
 
@@ -460,10 +460,19 @@ var soundIDEvil = 'Evil'
 var soundIDStart = 'Start'
 
 function loadSound () {
+    createjs.Sound.on("fileload", this.loadHandler, this);
+    createjs.Sound.registerSound("sounds/body.m4a", soundIDStart)
     createjs.Sound.registerSound("sounds/mossburg.mp3", soundIDGood);
     createjs.Sound.registerSound("sounds/minigun.mp3", soundIDBad);
     createjs.Sound.registerSound("sounds/Evil.wav", soundIDEvil);
-    createjs.Sound.registerSound("sounds/body.m4a", soundIDStart);
+
+    function loadHandler(event) {
+        // This is fired for each sound that is registered.
+        var instance = createjs.Sound.play("sounds/body.m4a");  // play using id.  Could also use full sourcepath or event.src.
+       // instance.on("complete", this.handleComplete, this);
+        instance.volume = 0.5;
+    }
+;
 }
 
 function playSound () {
