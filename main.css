@@ -1,15 +1,57 @@
+.un{
+    order:0;
+}
+.deux{
+    order:1;
+}
+
+.trois{
+    order:2;
+}
+
+.image{
+    padding-left: 16px;
+}
+
 .menu {
     display : flex;
     flex-direction: row;
     flex-wrap:wrap;
-    justify-content: space-around;
+    justify-content: center;
     align-items:center;
     height:15%;
     width : 100%;
     padding-top: 10px;
-    padding-bottom: 10%;
+    padding-bottom: 2%;
 }
 
+.green{
+    background-color: green;
+}
+
+.red{
+    background-color: red;
+
+}
+
+
+.textScore {
+    font-weight:bold;
+}
+.menuPlay {
+    display : flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items:center;
+    height:15%;
+    width : 100%;
+    padding-top: 10px;
+    }
+
+.menu h5 {
+    margin-bottom:0 ;
+}
 .playW {
     display : flex;
     flex-direction: row;
@@ -67,11 +109,42 @@ border-width: 2px;
     padding: 25px;
 }
 
+.topscore{
+    padding:12px;
+    margin:12px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items:center;
+
+}
+
+
+.cardgameOver{
+    padding:0px;
+}
 .cardgame img {
     width: 100%;
 }
 
 .launch.btn-group {
+    display:none;
+}
+
+.launch {
+    display:none;
+}
+
+.launch.navbar-expand-lg {
+    display:none;
+}
+
+.launch.page-footer  {
+    display:none;
+}
+.launch.page-footer.navbar-expand-lg  {
     display:none;
 }
 

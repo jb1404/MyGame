@@ -21,7 +21,7 @@
 
 <body onload="loadSound();">
 
-    <nav class="navbar navbar-expand-lg navbar-light" style='background-color: rgb(215, 220, 228);'>
+    <nav class="navbar navbar-expand-lg launch navbar-light " style='background-color: rgb(215, 220, 228);'>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -45,12 +45,31 @@
 
 
 
-    <div class='menu container-fluid'>
+    <div class='menu'>
+
+            <div class='trois image animated '>
+                <img id ='target1' src='' alt=''></img>
+
+            </div>
             
-        <div class="btn-group" role="group" aria-label="Basic example" id='startButton'>
-            <button type="button" class="btn btn-primary"><h6>Play !</h6></button>
-        </div>
-                            
+           
+            <div class='border border-info topscore deux'>
+                    <span class="textScore"><H5>Chrono: 0</H5></span>    
+            </div>
+            <div class='border border-info topscore un'>
+                    <span class="textScore"><H5>Party-Score: 0</H5></span>    
+            </div>
+
+             <!--
+            <div class='border border-info topscore un'>
+                    <span class="textScore"><H5>Best Score: 99</H5></span>    
+                </div>
+            
+            <div class='border border-info topscore trois'>
+                    <span class="textScore"><H5>0</H5></span>    
+            </div>--> 
+
+         <!--                  
         <div class="btn-group" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-primary"><H6>Time:</H6></button>
             <button type="button" class="btn btn-primary"id='chrono'><h6>60</h6></button>
@@ -63,7 +82,7 @@
         <div>
             <button type="button" class="btn btn-danger"id='count2'><h6>0</h6></button>
         </div>
-        
+        --> 
     </div>
 
 
@@ -96,18 +115,30 @@
         </div>
         <div id='card14' class='cardgame' index-data='13'><img src='' alt=''></img>
         </div>
-
-    </div>
-
-    <div class='bottom'>
-        <h6></h6>
-    </div>
-
-    <footer class="page-footer blue center-on-small-only">
+        <div id='card15' class='cardgame' index-data='14'><img src='' alt=''></img>
+        </div>
+        <div id='card16' class='cardgame' index-data='15'><img src='' alt=''></img>
+        </div>
+        <div id='card17' class='cardgame' index-data='16'><img src='' alt=''></img>
+        </div>
+        <div id='card18' class='cardgame' index-data='17'><img src='' alt=''></img>
+        </div>
+        <div id='card19' class='cardgame' index-data='18'><img src='' alt=''></img>
+        </div>
+        <div id='card20' class='cardgame' index-data='19'><img src='' alt=''></img>
+       
+       
+       
         
-            
-            <!--/.Footer Links-->
 
+    </div>
+    <div class="btn-group launch menuPlay" role="group" aria-label="Basic example" id='startButton'>
+        <a type="button" class="btn btn-primary"href='index.html'><h6>Play !</h6></a>    
+        
+    </div>
+
+
+    <footer class="page-footer launch blue center-on-small-only container-fluid">
             <!--Copyright-->
             <div class="footer-copyright footerFlex  ">
                 <div class="container-fluid">
@@ -115,10 +146,9 @@
         
                 </div>
             </div>
-            <!--/.Copyright-->
         
-        </footer>
-        <!--/.Footer-->
+    </footer>
+
                         
                     
 

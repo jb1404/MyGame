@@ -1,9 +1,16 @@
-$(document).ready(function() {
-    $('#startButton').click(function(e) {
-
-       party.startGame();
-        $('#startButton').addClass('launch') 
+$(document).ready(function() 
+{
+    $('#startButton').on('click', function(e){
+        //party.startGame();
     })
+    //$('navbar-expand-lg').toggleClass('show');
+    //$('page-footer').toggleClass('launch');
+    setTimeout(function() {
+        party.startGame()
+    },500);
+    
+
+    
 })
 
 
@@ -48,7 +55,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: '',
+            source: 'images/Gif/droide.gif',
             shot: '',
             cliked: false,
             score: 2,
@@ -60,7 +67,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: 'images/Gif/CA.gif',
+            source: 'images/Gif/Luke.gif',
             shot: 'Evil.jpg',
             cliked: false,
             score: -3,
@@ -72,7 +79,31 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: '',
+            source: 'images/Gif/Sailor.gif',
+            shot: '',
+            cliked: false,
+            score: -3,
+            goodGuy: false,
+            special: false,
+            effectIn: 'animated bounceOut',
+            effectOut: 'animated bounceOut'
+        },
+        {
+            index: 0,
+            name: 'Trumpy',
+            source: 'images/Gif/hulk.gif',
+            shot: '',
+            cliked: false,
+            score: -3,
+            goodGuy: false,
+            special: false,
+            effectIn: 'animated bounceOut',
+            effectOut: 'animated bounceOut'
+        },
+        {
+            index: 0,
+            name: 'Trumpy',
+            source: 'images/Gif/CA.gif',
             shot: '',
             cliked: false,
             score: -3,
@@ -125,7 +156,31 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: '',
+            source: 'images/Gif/yop.gif',
+            shot: '',
+            cliked: false,
+            score: 2,
+            goodGuy: false,
+            special: false,
+            effectIn: 'animated bounceOut',
+            effectOut: 'animated bounceOut'
+        },
+        {
+            index: 0,
+            name: 'Evil',
+            source: 'images/Gif/Evil3.gif',
+            shot: '//images/Trumpy_clicked.png',
+            cliked: false,
+            score: 2,
+            goodGuy: false,
+            special: false,
+            effectIn: 'animated bounceOut',
+            effectOut: 'animated bounceOut'
+        },
+        {
+            index: 0,
+            name: 'Trumpy',
+            source: 'images/Gif/evil.gif',
             shot: '',
             cliked: false,
             score: 2,
@@ -161,7 +216,14 @@ var KillingHeroe = function() {
 
 
     ];
-
+    this.reaction =[
+        {   
+            source: 'images/Gif/yes.png'
+        },
+        {   
+            source: 'images/Gif/no.png'
+        }
+    ]
     this.gameOverCard = [{
         index: 0,
         name: 'Evil',
@@ -178,12 +240,13 @@ var KillingHeroe = function() {
     this.total = 20;
     this.theGame = [];
     this.shuffle();
+    this.bestScore = 0;
     this.timing = 0;
     this.shuffleBad()
-    this.partyTime = 60;
+    this.partyTime = 30;
     this.courrentTime = this.partyTime
     this.cardPoint =0;
-    this.numberOfCards = 14;
+    this.numberOfCards = 21;
     this.intervall = 3500;
 }
 
@@ -196,7 +259,6 @@ KillingHeroe.prototype.startGame = function() {
     this.acceleration();
     createjs.Sound.play(soundIDStart); 
 
-    $("#chrono > h6").text(0)
     $('#startButton').addClass('tada') 
     }
 
@@ -206,7 +268,7 @@ KillingHeroe.prototype.chrono = function() {
     var countdown = setInterval(function() {
         if (counter > 0) {
             counter += -1;
-            $("#chrono > h6").text(counter);
+            $("body > div.menu > div.border.border-info.topscore.deux > span > h5").text('Chrono : '+counter);
             that.courrentTime = counter;
         } else {
             clearInterval(that.cycleInterval);
@@ -221,6 +283,15 @@ KillingHeroe.prototype.gameOver = function()
     var that = this;
     clearInterval(this.timing)
     temp = Math.floor(Math.random() * 2)
+    $('.navbar').toggleClass('launch');
+    $('body > footer').toggleClass('launch');
+    $('.cardgame').toggleClass('cardgameOver');
+    $('#target1').attr('src', '')
+   
+    //if( party.cardPoint > that.bestScore){
+      //localStorage.setItem("Best Score", party.cardpoint);
+      //localStorage.Item("Best Score");
+      //}
 
 for (i = 0; i < this.numberOfCards; i++) 
     {
@@ -277,7 +348,7 @@ KillingHeroe.prototype.acceleration = function()
     var that = this;
     this.timing = setInterval(
          function () {
-             that.intervall = that.intervall * (0.83)
+             that.intervall = that.intervall * (0.80)
              clearInterval(that.cycleInterval);
              that.cycleInterval = setInterval(that.showCard.bind(that),that.intervall);
             }, 3000);
@@ -286,7 +357,7 @@ KillingHeroe.prototype.acceleration = function()
 }
 
 KillingHeroe.prototype.showCard = function() {
-    console.log(this);
+    //console.log(this);
     this.shuffleBad();
     this.shuffle();
     this.gameCards();
@@ -301,7 +372,7 @@ KillingHeroe.prototype.changeCursor = function ()
 {
         $hand = $('.hand');
         $hand.click(function() {
-            $hand.css('cursor','images/objets/lightsabericonred .png');
+            $hand.css('cursor','images/objets/lightsabericonred.png');
         });
 
 }
@@ -309,23 +380,27 @@ KillingHeroe.prototype.changeCursor = function ()
 KillingHeroe.prototype.points = function(e) {
      
       party.cardPoint += party.theGame[$(this).attr('index-data')].score;
-      //if(){
-      //localStorage.setItem("Best Score", party.cardpoint);
-      //localStorage.Item("Best Score", party.cardpoint);
-      //}
-      $("#count > h6").text(party.cardPoint);
-      $("#count2 > h6").text(party.theGame[$(this).attr('index-data')].score);
-      $("#count2").toggleClass('animated zoomIn');
+
+      
+      $("body > div.menu > div.border.border-info.topscore.un > span > h5").text('Party-Score: '+party.cardPoint);
+
 
       if (party.theGame[$(this).attr('index-data')].score == 2) {
         createjs.Sound.play(soundIDGood);
         createjs.Sound.play(soundIDEvil);
+        $('#target1').attr('src', party.reaction[0].source)
+        $('body > div.menu > div.trois.image.animated').addClass('fadeInDown')
+        setTimeout(function(){$('body > div.menu > div.trois.image.animated.fadeInDown').removeClass('fadeInDown')},1000)
+        
       }
        else { party.theGame[$(this).attr('index-data')].score
        createjs.Sound.play(soundIDGood); 
+       $('#target1').attr('src', party.reaction[1].source)
+       $('body > div.menu > div.trois.image.animated').addClass('fadeInDown')
+       setTimeout(function(){$('body > div.menu > div.trois.image.animated.fadeInDown').removeClass('fadeInDown')},1000)
       
       }
-      //elseif () {}
+     
 
 
     var tmp = $(this).find('img')
@@ -347,7 +422,7 @@ KillingHeroe.prototype.points = function(e) {
     });
     setTimeout(() => {
         $('.explode-wrapper').hide();
-        console.log('reload img', $(this).find('img'))
+        
         if ($(this).find('img').length === 0) {
         $(this).append("<img id ='target' src='' alt=''>")}
         else ;
