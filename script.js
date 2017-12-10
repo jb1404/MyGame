@@ -1,6 +1,7 @@
 $(document).ready(function() 
 {
-    createjs.Sound.play(soundIDStart); 
+    audio.play();
+    //createjs.Sound.play(soundIDStart); 
     $('#startButton').on('click', function(e){
         //party.startGame();
     })
@@ -147,7 +148,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Evil',
-            source: 'images/Gif/palpatine.gif',
+            source: 'images/Gif/thor.gif',
             shot: '//images/Trumpy_clicked.png',
             cliked: false,
             score: 2,
@@ -171,7 +172,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Evil',
-            source: 'images/Gif/Evil3.gif',
+            source: 'images/Gif/mickael.gif',
             shot: '//images/Trumpy_clicked.png',
             cliked: false,
             score: 2,
@@ -183,7 +184,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: 'images/Gif/evil.gif',
+            source: 'images/Gif/maya.gif',
             shot: '',
             cliked: false,
             score: 2,
@@ -195,7 +196,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Evil',
-            source: 'images/Gif/Evil3.gif',
+            source: 'images/Gif/maxence.gif',
             shot: '//images/Trumpy_clicked.png',
             cliked: false,
             score: 2,
@@ -207,7 +208,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: 'images/Gif/evil.gif',
+            source: 'images/Gif/charlotte.gif',
             shot: '',
             cliked: false,
             score: 2,
@@ -230,15 +231,33 @@ var KillingHeroe = function() {
 
     this.extraCard =[
         {   
-            name : 'bob',
-            source: 'images/Objets/lightsabericonred .png',
+            name : 'charlotte',
+            source: 'images/Gif/charlotte.gif',
             sound:'',
-            score:''
+            score:'4'
         },
         {   name : 'jony',
-            source: 'images/Gif/no.png',
+            source: 'images/Gif/maxence.gif',
             sound:'',
-            score:''
+            score:'5'
+        },
+        {   
+            name : 'charlotte',
+            source: 'images/Gif/maya.gif',
+            sound:'',
+            score:'4'
+        },
+        {   name : 'jony',
+            source: 'images/Gif/mickael.gif',
+            sound:'',
+            score:'5'
+        }
+        ,
+        {   
+            name : 'charlotte',
+            source: 'images/Gif/thor.gif',
+            sound:'',
+            score:'10'
         }
     ]
     this.gameOverCard = [{
@@ -260,7 +279,7 @@ var KillingHeroe = function() {
     this.bestScore = 0;
     this.timing = 0;
     this.shuffleBad()
-    this.partyTime = 45;
+    this.partyTime = 35;
     this.courrentTime = this.partyTime
     this.cardPoint =0;
     this.numberOfCards = 21;
@@ -286,13 +305,14 @@ KillingHeroe.prototype.chrono = function() {
         if (counter > 0) {
             counter += -1;
             $("body > div.menu > div.border.border-info.topscore.deux > span > h5").text('Chrono : '+counter);
-            that.courrentTime = counter;
+            that.currentTime = counter;
         } else {
             clearInterval(that.cycleInterval);
             that.gameOver();
             clearInterval(countdown);
         } ;
     }, 1000)
+    
 }
 
 KillingHeroe.prototype.gameOver = function() 
@@ -323,16 +343,34 @@ for (i = 0; i < this.numberOfCards; i++)
 KillingHeroe.prototype.gameCards = function() {
     var good = this.cardGood;
     var bad = this.cardBad;
+    var extra = this.extraCard;
     this.theGame = [];
     j = bad.length - 1;
-    for (i = 0; i < good.length; i++) {
-        this.theGame.push(good[i]);
-        this.theGame.push(bad[j]);
-        this.theGame.push(bad[j]);
-        j = j - 1
-    }
-    return this.theGame;
-}
+    g = extra.length -1
+    console.log('current time',this.currentTime )
+    console.log('temps',this.partyTime)
+        /*if ( this.currentTime<0,3*this.partyTime)
+        {
+            for (i = 0; i < good.length; i++) {
+                this.theGame.push(good[i]);
+                this.theGame.push(extra[g]);
+                this.theGame.push(bad[g]);
+                this.theGame.push(extra[g]);
+            
+                g = g - 1
+            }
+            return this.theGame;
+        }
+    else {*/
+        for (i = 0; i < good.length; i++) {
+            this.theGame.push(good[i]);
+            this.theGame.push(bad[j]);
+            this.theGame.push(bad[j]);
+            j = j - 1
+        }
+            return this.theGame;
+        }
+//}
 KillingHeroe.prototype.shuffle = function() {
     var counter = this.cardGood.length - 1;
     var random = 0;
@@ -462,7 +500,7 @@ var soundIDStart = 'Start'
 
 function loadSound () {
    //createjs.Sound.on("fileload", this.loadHandler, this);
-    createjs.Sound.registerSound("sounds/body.m4a", soundIDStart)
+    //createjs.Sound.registerSound("sounds/body.m4a", soundIDStart)
     createjs.Sound.registerSound("sounds/mossburg.mp3", soundIDGood);
     createjs.Sound.registerSound("sounds/minigun.mp3", soundIDBad);
     createjs.Sound.registerSound("sounds/Evil.wav", soundIDEvil);
@@ -475,6 +513,9 @@ function loadSound () {
     //}
 
 }
+
+var audio = new Audio('sounds/body.mp3');
+
 
 function playSound () {
     createjs.Sound.play(soundID);
