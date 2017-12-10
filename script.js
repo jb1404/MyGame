@@ -83,7 +83,7 @@ var KillingHeroe = function() {
         {
             index: 0,
             name: 'Trumpy',
-            source: 'images/Gif/Sailor.gif',
+            source: 'images/Gif/droide.gif',
             shot: '',
             cliked: false,
             score: -3,
@@ -403,7 +403,7 @@ KillingHeroe.prototype.acceleration = function()
     var that = this;
     this.timing = setInterval(
          function () {
-             that.intervall = that.intervall * (0.80)
+             that.intervall = that.intervall * (0.78)
              clearInterval(that.cycleInterval);
              that.cycleInterval = setInterval(that.showCard.bind(that),that.intervall);
             }, 3000);
@@ -436,13 +436,8 @@ KillingHeroe.prototype.points = function(e) {
      
       party.cardPoint += party.theGame[$(this).attr('index-data')].score;
 
-      
       $("body > div.menu > div.border.border-info.topscore.un > span > h5").text('Party-Score: '+party.cardPoint);
-
-        
-
-
-
+      
       if (party.theGame[$(this).attr('index-data')].score == 2) {
         createjs.Sound.play(soundIDGood);
         createjs.Sound.play(soundIDEvil);
@@ -459,8 +454,6 @@ KillingHeroe.prototype.points = function(e) {
       
       }
      
-
-
     var tmp = $(this).find('img')
     tmp.explode({
         "minWidth": 3,
