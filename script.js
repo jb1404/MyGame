@@ -448,6 +448,7 @@ KillingHeroe.prototype.points = function(e) {
       }
        else { party.theGame[$(this).attr('index-data')].score
        createjs.Sound.play(soundIDGood); 
+       createjs.Sound.play(soundIDNo);
        $('#target1').attr('src', party.reaction[1].source)
        $('body > div.menu > div.trois.image.animated').addClass('fadeInDown')
        setTimeout(function(){$('body > div.menu > div.trois.image.animated.fadeInDown').removeClass('fadeInDown')},1000)
@@ -490,6 +491,7 @@ var soundIDGood = "Good";
 var soundIDBad = "Bad";
 var soundIDEvil = 'Evil'
 var soundIDStart = 'Start'
+var soundIDNo = 'No'
 
 function loadSound () {
    //createjs.Sound.on("fileload", this.loadHandler, this);
@@ -497,6 +499,7 @@ function loadSound () {
     createjs.Sound.registerSound("sounds/mossburg.mp3", soundIDGood);
     createjs.Sound.registerSound("sounds/minigun.mp3", soundIDBad);
     createjs.Sound.registerSound("sounds/Evil.wav", soundIDEvil);
+    createjs.Sound.registerSound("sounds/no.wav", soundIDNo);
 
     //function loadHandler(event) {
         // This is fired for each sound that is registered.
